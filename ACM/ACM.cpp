@@ -22,7 +22,7 @@
  
 /*!
 	\author Steve Lhomme
-	\version \$Id: ACM.cpp,v 1.14 2002/04/08 18:43:30 robux4 Exp $
+	\version \$Id: ACM.cpp,v 1.14.6.1 2004/06/26 17:08:07 robert Exp $
 */
 
 #if !defined(STRICT)
@@ -327,9 +327,11 @@ ACM::ACM( HMODULE hModule )
 	}
 
 #if   LAME_ALPHA_VERSION > 0
-	wsprintf(VersionString,"%s - %d.%d (alpha %d)", ACM_VERSION, LAME_MAJOR_VERSION, LAME_MINOR_VERSION,LAME_ALPHA_VERSION);
+	wsprintf(VersionString,"%s - %d.%d (alpha %d)", ACM_VERSION, LAME_MAJOR_VERSION, LAME_MINOR_VERSION,LAME_PATCH_VERSION);
 #elif LAME_BETA_VERSION > 0
-	wsprintf(VersionString,"%s - %d.%d (beta %d)", ACM_VERSION, LAME_MAJOR_VERSION, LAME_MINOR_VERSION, LAME_BETA_VERSION);
+	wsprintf(VersionString,"%s - %d.%d (beta %d)", ACM_VERSION, LAME_MAJOR_VERSION, LAME_MINOR_VERSION, LAME_PATCH_VERSION);
+#elif LAME_PATCH_VERSION > 0
+	wsprintf(VersionString,"%s - %d.%d.%d (stable)", ACM_VERSION, LAME_MAJOR_VERSION, LAME_MINOR_VERSION, LAME_PATCH_VERSION);
 #else
 	wsprintf(VersionString,"%s - %d.%d (stable)", ACM_VERSION, LAME_MAJOR_VERSION, LAME_MINOR_VERSION);
 #endif
