@@ -1,7 +1,10 @@
 /*
  * MP3 quantization
  *
- * Copyright (c) 1999 Mark Taylor
+ *	Copyright (c) 1999-2000 Mark Taylor
+ *	Copyright (c) 1999-2003 Takehiro Tominaga
+ *	Copyright (c) 2000-2005 Robert Hegemann
+ *	Copyright (c) 2001-2005 Gabriel Bouvigne
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -19,7 +22,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: quantize.c,v 1.170.2.1 2005/11/06 17:41:44 bouvigne Exp $ */
+/* $Id: quantize.c,v 1.170.2.2 2005/11/20 14:08:25 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>

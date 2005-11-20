@@ -1,7 +1,7 @@
 /*
  *	bit reservoir source file
  *
- *	Copyright (c) 1999 Mark Taylor
+ *	Copyright (c) 1999-2000 Mark Taylor
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: reservoir.c,v 1.29 2004/06/18 19:15:03 bouvigne Exp $ */
+/* $Id: reservoir.c,v 1.29.2.1 2005/11/20 14:08:25 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
