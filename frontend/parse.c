@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.212 2005/09/20 09:19:04 robert Exp $ */
+/* $Id: parse.c,v 1.211.2.1 2005/11/26 14:19:02 bouvigne Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1661,7 +1661,7 @@ char* const inPath, char* const outPath, char **nogap_inPath, int *num_nogap)
                     argUsed=1;        /* once was 1:Gaby, 2:Robert, 3:Jon, else:off */                                        
                     lame_set_athaa_type( gfp, atoi(nextArg) );/* now: 0:off else:Jon */
 
-                T_ELIF_INTERNAL ("athaa-sensitivity")
+                T_ELIF ("athaa-sensitivity")
                     argUsed=1;
                     lame_set_athaa_sensitivity( gfp, atof(nextArg) );
 
@@ -1678,12 +1678,7 @@ char* const inPath, char* const outPath, char **nogap_inPath, int *num_nogap)
                             return -1;
                         }
                     }
-
-                T_ELIF_INTERNAL ("quantization-type")   /*  switch for developing, no DOCU */
-                    argUsed=1;        /* 0:depending on quality, 1:ISO, 2:x^3/4 */                                        
-                    {extern void lame_set_quantization_type(lame_t,int);
-                    lame_set_quantization_type( gfp, atoi(nextArg) );/* now: 0:off else:Jon */
-                    }
+                 
 
                 T_ELSE
                     fprintf(stderr,"%s: unrec option --%s\n", ProgramName, token);
