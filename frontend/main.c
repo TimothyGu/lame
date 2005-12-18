@@ -2,7 +2,7 @@
  *      Command line frontend program
  *
  *      Copyright (c) 1999 Mark Taylor
- *                    2000 Takehiro TOMIANGA
+ *                    2000 Takehiro TOMINAGA
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: main.c,v 1.92 2005/03/13 14:42:21 robert Exp $ */
+/* $Id: main.c,v 1.92.2.1 2005/12/18 18:49:29 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
