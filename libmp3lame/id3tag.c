@@ -28,7 +28,7 @@
  * NOTE: See http://id3.org/ for more information about ID3 tag formats.
  */
 
-/* $Id: id3tag.c,v 1.23 2004/02/02 12:38:30 aleidinger Exp $ */
+/* $Id: id3tag.c,v 1.23.4.1 2006/01/21 16:29:37 takehiro Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -392,7 +392,7 @@ id3tag_write_v2(lame_global_flags *gfp)
             size_t encoder_length;
             char year[5];
             size_t year_length;
-            char track[3];
+            char track[4];
             size_t track_length;
             char genre[6];
             size_t genre_length;
