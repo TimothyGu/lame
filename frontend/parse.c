@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.211.2.2 2005/12/21 21:41:29 robert Exp $ */
+/* $Id: parse.c,v 1.211.2.3 2006/02/02 21:04:30 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -156,17 +156,17 @@ static void setWin32Priority( lame_global_flags*  gfp, int Priority )
     case 0:
     case 1:
         SetPriorityClassMacro(IDLE_PRIORITY_CLASS);
-        console_printf("==> Priority set to Low.\n");
+        printf("==> Priority set to Low.\n");
         break;
     default:
     case 2:
         SetPriorityClassMacro(NORMAL_PRIORITY_CLASS);
-        console_printf("==> Priority set to Normal.\n");
+        printf("==> Priority set to Normal.\n");
         break;
     case 3:
     case 4:
         SetPriorityClassMacro(HIGH_PRIORITY_CLASS);
-        console_printf("==> Priority set to High.\n");
+        printf("==> Priority set to High.\n");
         break;
     }
 }
