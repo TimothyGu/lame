@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.323.2.1 2008/08/05 14:16:06 robert Exp $ */
+/* $Id: lame.c,v 1.323.2.2 2008/08/05 17:26:02 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -144,12 +144,21 @@ lame_init_params_ppflt(lame_global_flags const *gfp)
     }
 
     for (band = 0; band < 32; band++) {
+        double fc1, fc2;
         freq = band / 31.0;
-        gfc->amp_filter[band]
-            = filter_coef((gfc->highpass2 - freq)
-                          / (gfc->highpass2 - gfc->highpass1 + 1e-20))
-            * filter_coef((freq - gfc->lowpass1)
-                          / (gfc->lowpass2 - gfc->lowpass1 + 1e-20));
+        if (gfc->highpass2 > gfc->highpass1) {
+            fc1 = filter_coef((gfc->highpass2 - freq) / (gfc->highpass2 - gfc->highpass1 + 1e-20));
+        }
+        else {
+            fc1 = 1.0;
+        }
+        if (gfc->lowpass2 > gfc->lowpass1) {
+            fc2 = filter_coef((freq - gfc->lowpass1)  / (gfc->lowpass2 - gfc->lowpass1 + 1e-20));
+        }
+        else {
+            fc2 = 1.0;
+        }
+        gfc->amp_filter[band] = fc1 * fc2;
     }
 }
 
@@ -789,6 +798,10 @@ lame_init_params(lame_global_flags * gfp)
         gfc->highpass1 /= gfp->out_samplerate;
         gfc->highpass2 /= gfp->out_samplerate;
     }
+    else {
+        gfc->highpass1 = 0;
+        gfc->highpass2 = 0;
+    }
     /* apply user driven low pass filter */
     if (gfp->lowpassfreq > 0) {
         gfc->lowpass2 = 2. * gfp->lowpassfreq;
@@ -802,6 +815,10 @@ lame_init_params(lame_global_flags * gfp)
         }
         gfc->lowpass1 /= gfp->out_samplerate;
         gfc->lowpass2 /= gfp->out_samplerate;
+    }
+    else {
+        gfc->lowpass1 = 0;
+        gfc->lowpass2 = 0;
     }
 
 
