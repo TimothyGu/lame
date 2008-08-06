@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.247.2.1 2008/08/05 17:26:02 robert Exp $ */
+/* $Id: parse.c,v 1.247.2.2 2008/08/06 15:35:57 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1431,26 +1431,6 @@ parse_args(lame_global_flags * gfp, int argc, char **argv,
                     if (presets_set(gfp, 0, 0, token, ProgramName) < 0)
                     return -1;
                 error_printf("Warning: --voice is deprecated, use --preset voice instead!");
-
-                T_ELIF("radio")
-                    if (presets_set(gfp, 0, 0, token, ProgramName) < 0)
-                    return -1;
-                error_printf("Warning: --radio is deprecated, use --preset radio instead!");
-
-                T_ELIF("tape")
-                    if (presets_set(gfp, 0, 0, token, ProgramName) < 0)
-                    return -1;
-                error_printf("Warning: --tape is deprecated, use --preset tape instead!");
-
-                T_ELIF("cd")
-                    if (presets_set(gfp, 0, 0, token, ProgramName) < 0)
-                    return -1;
-                error_printf("Warning: --cd is deprecated, use --preset cd instead!");
-
-                T_ELIF("studio")
-                    if (presets_set(gfp, 0, 0, token, ProgramName) < 0)
-                    return -1;
-                error_printf("Warning: --studio is deprecated, use --preset studio instead!");
 
                 T_ELIF_INTERNAL("noshort")
                     (void) lame_set_no_short_blocks(gfp, 1);
