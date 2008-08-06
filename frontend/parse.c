@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.247.2.3 2008/08/06 17:06:15 robert Exp $ */
+/* $Id: parse.c,v 1.247.2.4 2008/08/06 17:12:57 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1616,11 +1616,13 @@ parse_args(lame_global_flags * gfp, int argc, char **argv,
                     albumart = (char *)malloc(size);
                     if (!albumart) {
                         error_printf("Insufficient memory for reading the albumart.\n");
+                        fclose(fpi);
                         return -1;
                     }
                     if (fread(albumart, 1, size, fpi) != size) {
                         error_printf("Read error: '%s'.\n", nextArg);
                         free(albumart);
+                        fclose(fpi);
                         return -1;
                     }
                     fclose(fpi);
