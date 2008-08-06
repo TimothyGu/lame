@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.247.2.2 2008/08/06 15:35:57 robert Exp $ */
+/* $Id: parse.c,v 1.247.2.3 2008/08/06 17:06:15 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1620,6 +1620,7 @@ parse_args(lame_global_flags * gfp, int argc, char **argv,
                     }
                     if (fread(albumart, 1, size, fpi) != size) {
                         error_printf("Read error: '%s'.\n", nextArg);
+                        free(albumart);
                         return -1;
                     }
                     fclose(fpi);
