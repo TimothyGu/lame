@@ -28,7 +28,7 @@
  * NOTE: See http://id3.org/ for more information about ID3 tag formats.
  */
 
-/* $Id: id3tag.c,v 1.53.2.1 2008/08/05 14:16:06 robert Exp $ */
+/* $Id: id3tag.c,v 1.53.2.2 2008/09/13 21:44:25 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -91,7 +91,7 @@ static const char *const genre_names[] = {
     "Chanson", "Opera", "Chamber Music", "Sonata", "Symphony", "Booty Bass",
     "Primus", "Porn Groove", "Satire", "Slow Jam", "Club", "Tango", "Samba",
     "Folklore", "Ballad", "Power Ballad", "Rhythmic Soul", "Freestyle", "Duet",
-    "Punk Rock", "Drum Solo", "Acappella", "Euro-House", "Dance Hall",
+    "Punk Rock", "Drum Solo", "A Cappella", "Euro-House", "Dance Hall",
     "Goa", "Drum & Bass", "Club-House", "Hardcore", "Terror", "Indie",
     "BritPop", "Negerpunk", "Polsk Punk", "Beat", "Christian Gangsta",
     "Heavy Metal", "Black Metal", "Crossover", "Contemporary Christian",
