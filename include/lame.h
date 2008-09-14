@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.h,v 1.170 2008/04/12 18:18:06 robert Exp $ */
+/* $Id: lame.h,v 1.170.2.1 2008/09/14 11:51:49 robert Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -1095,6 +1095,8 @@ void CDECL id3tag_space_v1 (lame_global_flags *gfp);
 
 /* pad version 2 tag with extra 128 bytes */
 void CDECL id3tag_pad_v2   (lame_global_flags *gfp);
+/* pad version 2 tag with extra n bytes */
+void CDECL id3tag_set_pad  (lame_global_flags *gfp, size_t n);
 
 void CDECL id3tag_set_title(
         lame_global_flags*  gfp,
