@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.323.2.2 2008/08/05 17:26:02 robert Exp $ */
+/* $Id: lame.c,v 1.323.2.3 2008/10/11 18:04:05 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -719,8 +719,12 @@ lame_init_params(lame_global_flags * gfp)
     }
 
 #ifdef DECODE_ON_THE_FLY
-    if (gfc->decode_on_the_fly && !gfp->decode_only)
-        (void) lame_decode_init(); /* initialize the decoder  */
+    if (gfc->decode_on_the_fly && !gfp->decode_only) {
+        if (gfc->hip) {
+            hip_decode_exit(gfc->hip);
+        }
+        gfc->hip = hip_decode_init();
+    }
 #endif
 
     gfc->mode_gr = gfp->out_samplerate <= 24000 ? 1 : 2; /* Number of granules per frame */

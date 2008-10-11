@@ -1,4 +1,4 @@
-/* $Id: interface.c,v 1.52 2008/06/25 08:20:15 robert Exp $ */
+/* $Id: interface.c,v 1.52.2.1 2008/10/11 18:04:05 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -218,8 +218,8 @@ check_vbr_header(PMPSTR mp,int bytes)
   for (i=0; i<bytes; ++i) {
     while(pos >= buf->size) {
       buf  = buf->next;
+      if(!buf) 	return -1; /* fatal error */
       pos = buf->pos;
-      if(!buf)  return -1; /* fatal error */
     }
     ++pos;
   }

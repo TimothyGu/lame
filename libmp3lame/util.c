@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.140.2.1 2008/08/05 14:16:07 robert Exp $ */
+/* $Id: util.c,v 1.140.2.2 2008/10/11 18:04:05 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -151,6 +151,12 @@ freegfc(lame_internal_flags * const gfc)
         free(gfc->in_buffer_1);
     }
     free_id3tag(gfc);
+
+    if (gfc->hip) {
+        hip_decode_exit(gfc->hip);
+        gfc->hip = 0;
+    }
+
     free(gfc);
 }
 
