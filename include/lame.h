@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.h,v 1.170.2.2 2008/10/11 18:04:06 robert Exp $ */
+/* $Id: lame.h,v 1.170.2.3 2008/10/21 22:06:19 robert Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -35,9 +35,9 @@
 extern "C" {
 #endif
 
-#if defined(WIN32)
+#if defined(WIN32) || defined(_WIN32)
 #undef CDECL
-#define CDECL _cdecl
+#define CDECL __cdecl
 #else
 #define CDECL
 #endif
