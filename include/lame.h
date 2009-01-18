@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.h,v 1.170.2.3 2008/10/21 22:06:19 robert Exp $ */
+/* $Id: lame.h,v 1.170.2.4 2009/01/18 15:44:28 robert Exp $ */
 
 #ifndef LAME_LAME_H
 #define LAME_LAME_H
@@ -42,7 +42,9 @@ extern "C" {
 #define CDECL
 #endif
 
+
 #define DEPRECATED_OR_OBSOLETE_CODE_REMOVED 1
+
 
 typedef enum vbr_mode_e {
   vbr_off=0,

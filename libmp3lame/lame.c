@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.323.2.3 2008/10/11 18:04:05 robert Exp $ */
+/* $Id: lame.c,v 1.323.2.4 2009/01/18 15:44:27 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -2056,7 +2056,12 @@ lame_close(lame_global_flags * gfp)
 /* flush internal mp3 buffers, and free internal buffers         */
 /*****************************************************************/
 #if DEPRECATED_OR_OBSOLETE_CODE_REMOVED
+/* OBSOLETE */
+int CDECL
+lame_encode_finish(lame_global_flags * gfp, unsigned char *mp3buffer, int mp3buffer_size);
 #else
+#endif
+
 int
 lame_encode_finish(lame_global_flags * gfp, unsigned char *mp3buffer, int mp3buffer_size)
 {
@@ -2066,7 +2071,6 @@ lame_encode_finish(lame_global_flags * gfp, unsigned char *mp3buffer, int mp3buf
 
     return ret;
 }
-#endif
 
 /*****************************************************************/
 /* write VBR Xing header, and ID3 version 1 tag, if asked for    */
