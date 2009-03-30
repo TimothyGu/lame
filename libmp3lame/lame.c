@@ -24,7 +24,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: lame.c,v 1.323.2.6 2009/03/29 14:43:22 robert Exp $ */
+/* $Id: lame.c,v 1.323.2.7 2009/03/30 19:48:00 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -1947,7 +1947,7 @@ lame_encode_flush(lame_global_flags * gfp, unsigned char *mp3buffer, int mp3buff
      * data can be complety decoded (because of 50% overlap with next granule */
     int     end_padding;
     int     frames_left;
-    int     samples_to_encode = gfc->mf_samples_to_encode - POSTDELAY;
+    int     samples_to_encode = gfc->mf_samples_to_encode - POSTDELAY+288;
     int     mf_needed = calcNeeded(gfp);
 
     /* Was flush already called? */
