@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: util.c,v 1.140.2.2 2008/10/11 18:04:05 robert Exp $ */
+/* $Id: util.c,v 1.140.2.3 2009/03/31 22:37:27 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -604,7 +604,7 @@ fill_buffer_resample(lame_global_flags const *gfp,
     /* time of j'th element in inbuf = itime + j/ifreq; */
     /* time of k'th element in outbuf   =  j/ofreq */
     for (k = 0; k < desired_len; k++) {
-        FLOAT   time0;
+        double  time0;
         int     joff;
 
         time0 = k * gfc->resample_ratio; /* time of k'th output sample */
