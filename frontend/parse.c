@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.247.2.7 2008/10/11 18:04:05 robert Exp $ */
+/* $Id: parse.c,v 1.247.2.8 2009/12/11 22:44:25 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -162,7 +162,7 @@ dosToLongFileName(char *fn)
 BOOL
 SetPriorityClassMacro(DWORD p)
 {
-    HANDLE  op = OpenProcess(PROCESS_ALL_ACCESS, TRUE, GetCurrentProcessId());
+    HANDLE  op = GetCurrentProcess();
     return SetPriorityClass(op, p);
 }
 
