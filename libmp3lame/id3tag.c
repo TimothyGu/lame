@@ -28,7 +28,7 @@
  * NOTE: See http://id3.org/ for more information about ID3 tag formats.
  */
 
-/* $Id: id3tag.c,v 1.53.2.4 2008/10/11 18:04:05 robert Exp $ */
+/* $Id: id3tag.c,v 1.53.2.5 2010/02/19 00:44:37 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -197,24 +197,26 @@ id3v2AddLameVersion(lame_global_flags * gfp)
 static void
 id3v2AddAudioDuration(lame_global_flags * gfp)
 {
-    char    buffer[1024];
-    double const max_ulong = MAX_U_32_NUM;
-    double  ms = gfp->num_samples;
-    unsigned long playlength_ms;
+    if (gfp->num_samples != MAX_U_32_NUM) {
+        char    buffer[1024];
+        double const max_ulong = MAX_U_32_NUM;
+        double  ms = gfp->num_samples;
+        unsigned long playlength_ms;
 
-    ms *= 1000;
-    ms /= gfp->in_samplerate;
-    if (ms > max_ulong) {
-        playlength_ms = max_ulong;
+        ms *= 1000;
+        ms /= gfp->in_samplerate;
+        if (ms > max_ulong) {
+            playlength_ms = max_ulong;
+        }
+        else if (ms < 0) {
+            playlength_ms = 0;
+        }
+        else {
+            playlength_ms = ms;
+        }
+        snprintf(buffer, sizeof(buffer), "%lu", playlength_ms);
+        copyV1ToV2(gfp, ID_PLAYLENGTH, buffer);
     }
-    else if (ms < 0) {
-        playlength_ms = 0;
-    }
-    else {
-        playlength_ms = ms;
-    }
-    snprintf(buffer, sizeof(buffer), "%lu", playlength_ms);
-    copyV1ToV2(gfp, ID_PLAYLENGTH, buffer);
 }
 
 void
