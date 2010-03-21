@@ -19,7 +19,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: reservoir.c,v 1.40.2.1 2010/02/18 22:42:24 robert Exp $ */
+/* $Id: reservoir.c,v 1.40.2.2 2010/03/21 12:11:30 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
@@ -271,8 +271,6 @@ ResvFrameEnd(lame_internal_flags * gfc, int mean_bits)
         stuffingBits += over_bits;
     }
 
-
-#define NEW_DRAIN
     /* NOTE: enabling the NEW_DRAIN code fixes some problems with FhG decoder
              shipped with MS Windows operating systems. Using this, it is even
              possible to use Gabriel's lax buffer consideration again, which
@@ -287,7 +285,6 @@ ResvFrameEnd(lame_internal_flags * gfc, int mean_bits)
 
              Robert Hegemann, 2010-02-13.
      */
-#ifdef NEW_DRAIN
     /* drain as many bits as possible into previous frame ancillary data
      * In particular, in VBR mode ResvMax may have changed, and we have
      * to make sure main_data_begin does not create a reservoir bigger
@@ -298,21 +295,10 @@ ResvFrameEnd(lame_internal_flags * gfc, int mean_bits)
         stuffingBits -= 8 * mdb_bytes;
         gfc->ResvSize -= 8 * mdb_bytes;
         l3_side->main_data_begin -= mdb_bytes;
-
-
-        /* drain just enough to be byte aligned.  The remaining bits will
-         * be added to the reservoir, and we will deal with them next frame.
-         * If the next frame is at a lower bitrate, it may have a larger ResvMax,
-         * and we will not have to waste these bits!  mt 4/00 */
-        assert(stuffingBits >= 0);
-        l3_side->resvDrain_post += (stuffingBits % 8);
-        gfc->ResvSize -= stuffingBits % 8;
     }
-#else
     /* drain the rest into this frames ancillary data */
     l3_side->resvDrain_post += stuffingBits;
     gfc->ResvSize -= stuffingBits;
-#endif
 
     return;
 }
