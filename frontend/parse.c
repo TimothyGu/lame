@@ -2,7 +2,7 @@
  *      Command line parsing related functions
  *
  *      Copyright (c) 1999 Mark Taylor
- *                    2000-2011 Robert Hegemann
+ *                    2000-2012 Robert Hegemann
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: parse.c,v 1.292.2.1 2012/01/19 14:27:41 robert Exp $ */
+/* $Id: parse.c,v 1.292.2.2 2012/02/07 13:40:37 robert Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>
