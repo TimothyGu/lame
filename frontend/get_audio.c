@@ -20,7 +20,7 @@
  * Boston, MA 02111-1307, USA.
  */
 
-/* $Id: get_audio.c,v 1.156 2012/07/19 20:57:15 robert Exp $ */
+/* $Id: get_audio.c,v 1.157 2013/06/11 08:41:18 rbrito Exp $ */
 
 
 #ifdef HAVE_CONFIG_H
@@ -1117,7 +1117,7 @@ open_snd_file(lame_t gfp, char const *inPath)
 
         printf("\n");
         printf("sections          :%d\n", gs_wfInfo.sections);
-        printf("seekable          :\n", gs_wfInfo.seekable);
+        printf("seekable          :%d\n", gs_wfInfo.seekable);
 #endif
         /* Check result */
         if (gs_pSndFileIn == NULL) {
