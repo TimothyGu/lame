@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.7 2010/09/30 20:58:40 jaz001 Exp $
+## $Id: Makefile.am,v 1.8 2013/06/12 09:06:45 rbrito Exp $
 
 AUTOMAKE_OPTIONS = foreign ansi2knr
 
@@ -24,4 +24,3 @@ pkghtml_DATA = \
 	vbr.html
 
 EXTRA_DIST = $(pkghtml_DATA)
-
