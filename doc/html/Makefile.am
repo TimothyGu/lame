@@ -1,6 +1,6 @@
-## $Id: Makefile.am,v 1.8 2013/06/12 09:06:45 rbrito Exp $
+## $Id: Makefile.am,v 1.9 2013/06/12 09:16:29 rbrito Exp $
 
-AUTOMAKE_OPTIONS = foreign ansi2knr
+AUTOMAKE_OPTIONS = foreign
 
 docdir = $(datadir)/doc
 pkgdocdir = $(docdir)/$(PACKAGE)

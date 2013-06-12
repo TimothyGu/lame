@@ -1,4 +1,4 @@
-dnl $Id: configure.in,v 1.145 2013/06/12 09:06:45 rbrito Exp $
+dnl $Id: configure.in,v 1.146 2013/06/12 09:16:29 rbrito Exp $
 dnl
 dnl
 dnl don't forget to set ASM_FOR_ARCH to a space delimited list of
@@ -76,9 +76,6 @@ if test "${GCC}" = "yes"; then
 	GCC_version=`${CC} --version | sed -n '1s/^[[^ ]]* (.*) //;s/ .*$//;1p'`
 	AC_MSG_RESULT(${GCC_version})
 fi
-
-dnl more automake stuff
-AM_C_PROTOTYPES
 
 AC_CHECK_HEADER(dmalloc.h)
 if test "${ac_cv_header_dmalloc_h}" = "yes"; then

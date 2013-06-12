@@ -1,6 +1,6 @@
-## $Id: Makefile.am,v 1.27 2012/06/18 20:52:29 rbrito Exp $
+## $Id: Makefile.am,v 1.28 2013/06/12 09:16:29 rbrito Exp $
 
-AUTOMAKE_OPTIONS = foreign $(top_srcdir)/ansi2knr
+AUTOMAKE_OPTIONS = foreign
 
 DEFS = @DEFS@ @CONFIG_DEFS@
 
